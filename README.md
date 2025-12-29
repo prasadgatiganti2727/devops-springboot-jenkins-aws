@@ -68,8 +68,11 @@ This repository was created as part of **hands-on DevOps skill development** and
 
 ---
 
+'''md
+
 ## 🏗️ Architecture Overview
 
+'''time
 Developer
    ↓
 GitHub
@@ -84,6 +87,7 @@ Docker Hub
    ↓
 AWS EC2 (Docker Container)
 
+'''md
 ---
 
 ##📁 Repository Structure
