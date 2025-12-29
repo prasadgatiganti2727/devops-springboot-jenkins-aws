@@ -85,6 +85,9 @@ Docker Hub
    ↓
 AWS EC2 (Docker Container)
 
+'''md
+---
+
 ##📁 Repository Structure
 
 devops-springboot-jenkins-aws/
@@ -97,6 +100,9 @@ devops-springboot-jenkins-aws/
 │   └── src/                 # Spring Boot application source
 │
 └── README.md                # Project documentation
+
+'''md
+---
 
 ##🔐 Design Principles & Best Practices
 -Pipeline-as-Code
@@ -113,6 +119,9 @@ AWS EC2 simulates a real-world production deployment environment using industry-
 
 -Separation of Concerns
 Application logic, CI/CD pipeline, and infrastructure responsibilities are clearly separated.
+
+'''md
+---
 
 ##🚧 Future Enhancements
 -Jenkins agents running inside Docker containers
