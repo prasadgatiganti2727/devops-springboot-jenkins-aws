@@ -70,7 +70,6 @@ This repository was created as part of **hands-on DevOps skill development** and
 
 ## 🏗️ Architecture Overview
 
-```text
 Developer
    ↓
 GitHub
@@ -85,7 +84,6 @@ Docker Hub
    ↓
 AWS EC2 (Docker Container)
 
-'''md
 ---
 
 ##📁 Repository Structure
@@ -101,7 +99,6 @@ devops-springboot-jenkins-aws/
 │
 └── README.md                # Project documentation
 
-'''md
 ---
 
 ##🔐 Design Principles & Best Practices
@@ -120,7 +117,6 @@ AWS EC2 simulates a real-world production deployment environment using industry-
 -Separation of Concerns
 Application logic, CI/CD pipeline, and infrastructure responsibilities are clearly separated.
 
-'''md
 ---
 
 ##🚧 Future Enhancements
