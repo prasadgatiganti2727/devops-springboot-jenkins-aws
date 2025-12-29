@@ -1,0 +1,61 @@
+pipeline {
+  agent any
+
+  environment {
+    IMAGE_NAME = "springboot-devops-demo"
+    IMAGE_TAG  = "${env.BUILD_NUMBER}"
+  }
+
+  options {
+    timestamps()
+  }
+
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Build & Unit Test') {
+      steps {
+        // Uses Maven from Jenkins agent; if Maven isn't installed there, tell me and we’ll switch to a Dockerized Maven build.
+        sh 'mvn -B clean test'
+      }
+    }
+
+    stage('Package') {
+      steps {
+        sh 'mvn -B -DskipTests package'
+      }
+    }
+
+    stage('Docker Build') {
+      steps {
+        sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -t ${IMAGE_NAME}:latest ."
+      }
+    }
+
+    stage('Smoke Test (Container)') {
+      steps {
+        sh """
+          docker rm -f ${IMAGE_NAME}-ci 2>/dev/null || true
+          docker run -d --name ${IMAGE_NAME}-ci -p 18080:8080 ${IMAGE_NAME}:${IMAGE_TAG}
+          sleep 8
+          curl -fsS http://localhost:18080/actuator/health | grep -q UP
+        """
+      }
+      post {
+        always {
+          sh "docker rm -f ${IMAGE_NAME}-ci 2>/dev/null || true"
+        }
+      }
+    }
+  }
+
+  post {
+    always {
+      echo "Build completed: ${currentBuild.currentResult}"
+    }
+  }
+}
