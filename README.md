@@ -84,6 +84,12 @@ Docker Image
 Docker Hub
    ↓
 AWS EC2 (Docker Container)
+
+---
+
+## 📁 Repository Structure
+
+```text
 devops-springboot-jenkins-aws/
 │
 ├── Jenkinsfile              # CI/CD pipeline definition
@@ -94,35 +100,3 @@ devops-springboot-jenkins-aws/
 │   └── src/                 # Spring Boot application source
 │
 └── README.md                # Project documentation
-🔐 Design Principles & Best Practices
-Pipeline-as-Code
-CI/CD logic is version-controlled and reproducible using Jenkinsfile
-
-Dockerized Deployment
-Ensures consistent runtime environments across build, test, and production
-
-Immutable Builds
-Each Jenkins build produces a uniquely tagged Docker image
-
-Cloud-Ready Architecture
-AWS EC2 simulates a real production deployment environment
-
-Separation of Concerns
-Application, CI/CD, and infrastructure layers are clearly separated
-
-🚧 Future Enhancements
-Jenkins agent running inside Docker
-
-Multi-stage Docker builds for smaller images
-
-AWS IAM-based authentication
-
-Blue-Green or Rolling deployments
-
-Infrastructure as Code (Terraform / CloudFormation)
-
-Monitoring with Prometheus & Grafana
-
-👤 Author
-Lakshmi Vara Prasad Gatiganti
-DevOps | Backend | Cloud Enthusiast
