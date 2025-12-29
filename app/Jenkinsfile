@@ -1,12 +1,11 @@
 pipeline {
   agent any
+  options { timestamps() }
 
   environment {
     IMAGE_NAME = "springboot-devops-demo"
     IMAGE_TAG  = "${env.BUILD_NUMBER}"
   }
-
-  options { timestamps() }
 
   stages {
     stage('Checkout') {
@@ -37,20 +36,20 @@ pipeline {
       }
     }
 
-    stage('Smoke Test (Container)') {
+    stage('Smoke Test') {
       steps {
         dir('app') {
-          bat '''
+          bat """
             docker rm -f %IMAGE_NAME%-ci 2>nul
             docker run -d --name %IMAGE_NAME%-ci -p 18080:8080 %IMAGE_NAME%:%IMAGE_TAG%
             timeout /t 10 /nobreak
-            curl -fsS http://localhost:18080/actuator/health | findstr UP
-          '''
+            powershell -NoProfile -Command "Invoke-WebRequest -UseBasicParsing http://localhost:18080/actuator/health | Select-Object -ExpandProperty Content | Select-String -Pattern 'UP'"
+          """
         }
       }
       post {
         always {
-          bat 'docker rm -f %IMAGE_NAME%-ci 2>nul'
+          bat "docker rm -f %IMAGE_NAME%-ci 2>nul"
         }
       }
     }
@@ -58,7 +57,8 @@ pipeline {
 
   post {
     always {
-      echo "Build completed: ${currentBuild.currentResult}"
+      // Optional cleanup
+      bat "docker image prune -f"
     }
   }
 }
