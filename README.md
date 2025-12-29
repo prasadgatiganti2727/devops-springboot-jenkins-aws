@@ -84,6 +84,7 @@ Docker Image
 Docker Hub
    ↓
 AWS EC2 (Docker Container)
+<<<<<<< HEAD
 
 ---
 
@@ -100,3 +101,5 @@ devops-springboot-jenkins-aws/
 │   └── src/                 # Spring Boot application source
 │
 └── README.md                # Project documentation
+=======
+>>>>>>> 616311cf4d1397ba2e8b13dc6ef480a804e0fd5f
