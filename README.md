@@ -6,9 +6,9 @@ This repository demonstrates a **production-style CI/CD pipeline** built around 
 
 The project automates the **entire software delivery lifecycle** — from source code commit to containerized deployment — following industry best practices for:
 
-- Continuous Integration & Continuous Deployment
+- Continuous Integration & Continuous Deployment (CI/CD)
 - Containerization
-- Cloud-based deployment
+- Cloud-based infrastructure and deployment
 
 This repository was created as part of **hands-on DevOps skill development** and is continuously refined to reflect **enterprise-grade workflows**.
 
@@ -33,7 +33,7 @@ This repository was created as part of **hands-on DevOps skill development** and
 
 - RESTful API built using **Spring Boot**
 - **Spring Boot Actuator** enabled for health monitoring
-- Container-ready and environment-agnostic
+- Container-ready and environment-agnostic design
 
 ### Available Endpoints
 
@@ -62,7 +62,7 @@ This repository was created as part of **hands-on DevOps skill development** and
 - Docker image is pushed to Docker Hub
 
 ### 5. Continuous Deployment
-- Jenkins deploys the application to AWS EC2
+- Jenkins deploys the application to an AWS EC2 instance
 - Existing container is safely replaced
 - Application runs as a long-lived Docker container
 
@@ -84,13 +84,9 @@ Docker Image
 Docker Hub
    ↓
 AWS EC2 (Docker Container)
-<<<<<<< HEAD
 
----
+##📁 Repository Structure
 
-## 📁 Repository Structure
-
-```text
 devops-springboot-jenkins-aws/
 │
 ├── Jenkinsfile              # CI/CD pipeline definition
@@ -101,5 +97,32 @@ devops-springboot-jenkins-aws/
 │   └── src/                 # Spring Boot application source
 │
 └── README.md                # Project documentation
-=======
->>>>>>> 616311cf4d1397ba2e8b13dc6ef480a804e0fd5f
+
+##🔐 Design Principles & Best Practices
+-Pipeline-as-Code
+CI/CD logic is fully version-controlled using a Jenkinsfile, ensuring reproducibility and auditability.
+
+-Dockerized Deployment
+Docker guarantees consistent runtime environments across development, CI, and production.
+
+-Immutable Builds
+Each Jenkins build produces a uniquely versioned Docker image, preventing configuration drift.
+
+-Cloud-Ready Architecture
+AWS EC2 simulates a real-world production deployment environment using industry-standard tooling.
+
+-Separation of Concerns
+Application logic, CI/CD pipeline, and infrastructure responsibilities are clearly separated.
+
+##🚧 Future Enhancements
+-Jenkins agents running inside Docker containers
+
+-Multi-stage Docker builds for reduced image size
+
+-Secure AWS authentication using IAM roles
+
+-Blue-Green or Rolling deployment strategies
+
+-Infrastructure as Code using Terraform or CloudFormation
+
+-Monitoring and alerting with Prometheus & Grafana
