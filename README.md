@@ -64,11 +64,9 @@ This repository was created as part of **hands-on DevOps skill development** and
 
 ---
 
-'''md
-
 ## 🏗️ Architecture Overview
 
-'''time
+```text
 Developer
    ↓
 GitHub
@@ -83,15 +81,7 @@ Docker Hub
    ↓
 AWS EC2 (Docker Container)
 
-<<<<<<< HEAD
 ```
-=======
-'''md
----
-
-##📁 Repository Structure
->>>>>>> e3460aeba95e0c4ca60f5780c4dea0d7ee4fb715
-
 ---
 
 ## 📁 Repository Structure
@@ -108,16 +98,7 @@ devops-springboot-jenkins-aws/
 │
 └── README.md                # Project documentation
 
-<<<<<<< HEAD
 ```
-=======
----
-
-##🔐 Design Principles & Best Practices
--Pipeline-as-Code
-CI/CD logic is fully version-controlled using a Jenkinsfile, ensuring reproducibility and auditability.
->>>>>>> e3460aeba95e0c4ca60f5780c4dea0d7ee4fb715
-
 ---
 
 ## 🔐 Design Principles & Best Practices
@@ -127,25 +108,6 @@ CI/CD logic is fully version-controlled using a Jenkinsfile, ensuring reproducib
 
 - **Dockerized Deployment**  
   Docker guarantees consistent runtime environments across development, CI, and production.
-
-<<<<<<< HEAD
-- **Immutable Builds**  
-  Each Jenkins build produces a uniquely tagged Docker image, eliminating configuration drift.
-=======
----
-
-##🚧 Future Enhancements
--Jenkins agents running inside Docker containers
->>>>>>> e3460aeba95e0c4ca60f5780c4dea0d7ee4fb715
-
-- **Automated Testing**  
-  Unit tests are executed as part of the pipeline to catch issues early and maintain code quality.
-
-- **Cloud-Ready Architecture**  
-  AWS EC2 simulates a real-world production environment with minimal infrastructure overhead.
-
-- **Separation of Concerns**  
-  Application code, CI/CD logic, and deployment configuration are clearly separated for maintainability and scalability.
 
 ---
 
