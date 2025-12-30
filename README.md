@@ -4,11 +4,7 @@
 
 This repository demonstrates a **production-style CI/CD pipeline** built around a **Spring Boot application**, showcasing real-world DevOps practices using **Jenkins, Docker, and AWS EC2**.
 
-The project automates the **entire software delivery lifecycle** — from source code commit to containerized deployment — following industry best practices for:
-
-- Continuous Integration & Continuous Deployment (CI/CD)
-- Containerization
-- Cloud-based infrastructure and deployment
+The project automates the **entire software delivery lifecycle** — from source code commit to containerized deployment — following industry best practices for CI/CD, containerization, and cloud deployment.
 
 This repository was created as part of **hands-on DevOps skill development** and is continuously refined to reflect **enterprise-grade workflows**.
 
@@ -16,16 +12,16 @@ This repository was created as part of **hands-on DevOps skill development** and
 
 ## 🧰 Tech Stack
 
-| Category            | Technology                     |
-|---------------------|--------------------------------|
-| Language            | Java 17                        |
-| Framework           | Spring Boot                    |
-| Build Tool          | Maven                          |
-| CI/CD               | Jenkins (Pipeline-as-Code)     |
-| Containerization    | Docker                          |
-| Source Control      | GitHub                          |
-| Cloud Platform      | AWS EC2 (Free Tier)             |
-| Deployment OS       | Linux                           |
+| Category         | Technology                  |
+|------------------|-----------------------------|
+| Language         | Java 17                     |
+| Framework        | Spring Boot                 |
+| Build Tool       | Maven                       |
+| CI/CD            | Jenkins (Pipeline-as-Code)  |
+| Containerization | Docker                      |
+| Source Control   | GitHub                      |
+| Cloud Platform   | AWS EC2 (Free Tier)         |
+| Deployment OS    | Linux                       |
 
 ---
 
@@ -37,8 +33,8 @@ This repository was created as part of **hands-on DevOps skill development** and
 
 ### Available Endpoints
 
-- `GET /healthz` → Application health check  
-- `GET /api/hello?name=User` → Sample API endpoint  
+- `GET /healthz` – Application health check  
+- `GET /api/hello?name=User` – Sample API endpoint  
 
 ---
 
@@ -85,8 +81,13 @@ Docker Hub
    ↓
 AWS EC2 (Docker Container)
 
-##📁 Repository Structure
+```
 
+---
+
+## 📁 Repository Structure
+
+```text
 devops-springboot-jenkins-aws/
 │
 ├── Jenkinsfile              # CI/CD pipeline definition
@@ -98,31 +99,37 @@ devops-springboot-jenkins-aws/
 │
 └── README.md                # Project documentation
 
-##🔐 Design Principles & Best Practices
--Pipeline-as-Code
-CI/CD logic is fully version-controlled using a Jenkinsfile, ensuring reproducibility and auditability.
+```
 
--Dockerized Deployment
-Docker guarantees consistent runtime environments across development, CI, and production.
+---
 
--Immutable Builds
-Each Jenkins build produces a uniquely versioned Docker image, preventing configuration drift.
+## 🔐 Design Principles & Best Practices
 
--Cloud-Ready Architecture
-AWS EC2 simulates a real-world production deployment environment using industry-standard tooling.
+- **Pipeline-as-Code**  
+  The entire CI/CD workflow is defined using a Jenkinsfile, ensuring version control, reproducibility, and easy auditing.
 
--Separation of Concerns
-Application logic, CI/CD pipeline, and infrastructure responsibilities are clearly separated.
+- **Dockerized Deployment**  
+  Docker guarantees consistent runtime environments across development, CI, and production.
 
-##🚧 Future Enhancements
--Jenkins agents running inside Docker containers
+- **Immutable Builds**  
+  Each Jenkins build produces a uniquely tagged Docker image, eliminating configuration drift.
 
--Multi-stage Docker builds for reduced image size
+- **Automated Testing**  
+  Unit tests are executed as part of the pipeline to catch issues early and maintain code quality.
 
--Secure AWS authentication using IAM roles
+- **Cloud-Ready Architecture**  
+  AWS EC2 simulates a real-world production environment with minimal infrastructure overhead.
 
--Blue-Green or Rolling deployment strategies
+- **Separation of Concerns**  
+  Application code, CI/CD logic, and deployment configuration are clearly separated for maintainability and scalability.
 
--Infrastructure as Code using Terraform or CloudFormation
+---
 
--Monitoring and alerting with Prometheus & Grafana
+## 🚧 Future Enhancements
+
+- Jenkins agents running inside Docker containers  
+- Multi-stage Docker builds to reduce image size  
+- Secure AWS authentication using IAM roles  
+- Blue-Green or Rolling deployment strategies  
+- Infrastructure as Code using Terraform or CloudFormation  
+- Monitoring and alerting with Prometheus & Grafana
